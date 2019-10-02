@@ -41,13 +41,11 @@ public class TrelloClient {
     }
 
     private URI buildUrl() {
-        URI url = UriComponentsBuilder.fromHttpUrl(trelloApiEndpoint + "/members/" + username + "/boards")
+        return UriComponentsBuilder.fromHttpUrl(trelloApiEndpoint + "/members/" + username + "/boards")
                 .queryParam("key", trelloAppKey)
                 .queryParam("token", trelloAppToken)
                 .queryParam("fields", "name,id")
                 .queryParam("lists", "all").build().encode().toUri();
-
-        return url;
     }
 
     public CreatedTrelloCard createNewCard(TrelloCardDto trelloCardDto) {
