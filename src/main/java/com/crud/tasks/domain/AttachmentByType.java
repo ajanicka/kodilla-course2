@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,6 +12,5 @@ import org.springframework.beans.factory.annotation.Autowired;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AttachmentByType {
     @JsonProperty("trello")
-    @Autowired
     Trello trello;
 }
