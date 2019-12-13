@@ -50,10 +50,10 @@ public class TrelloMapperTest {
         //Then
         assertEquals(list.get(0).getId(),"id1");
         assertEquals(list.get(0).getName(), "name1");
-        assertEquals(list.get(0).isClosed(),false);
+        assertFalse(list.get(0).isClosed());
         assertEquals(list.get(1).getId(),"id2");
         assertEquals(list.get(1).getName(), "name2");
-        assertEquals(list.get(1).isClosed(),true);
+        assertTrue(list.get(1).isClosed());
     }
 
     @Test
@@ -67,10 +67,10 @@ public class TrelloMapperTest {
         //then
         assertEquals(listDtos.get(0).getId(),"id1");
         assertEquals(listDtos.get(0).getName(), "name1");
-        assertEquals(listDtos.get(0).isClosed(),false);
+        assertFalse(listDtos.get(0).isClosed());
         assertEquals(listDtos.get(1).getId(),"id2");
         assertEquals(listDtos.get(1).getName(), "name2");
-        assertEquals(listDtos.get(1).isClosed(),true);
+        assertTrue(listDtos.get(1).isClosed());
     }
 
     @Test
@@ -116,6 +116,6 @@ public class TrelloMapperTest {
         assertEquals(boardDtos.get(1).getName(),"name1");
         assertEquals(boardDtos.get(0).getLists().get(0).getId(), "id1");
         assertEquals(boardDtos.get(1).getLists().get(0).getName(), "name3");
-        assertEquals(boardDtos.get(1).getLists().get(0).isClosed(), false);
+        assertFalse(boardDtos.get(1).getLists().get(0).isClosed());
     }
 }
