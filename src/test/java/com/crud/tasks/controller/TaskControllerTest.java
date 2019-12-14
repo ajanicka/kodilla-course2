@@ -27,6 +27,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 public class TaskControllerTest {
     @Autowired
     private MockMvc mockMvc;
+
     @MockBean
     private TaskController taskController;
 
