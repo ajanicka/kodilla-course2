@@ -11,6 +11,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -102,4 +103,24 @@ public class TrelloClientTest {
         //Then
         assertEquals(0, fetchedTrelloBoards.size());
     }
+
+
+    @Test
+    public void getEmptyTrelloBoards() {
+        //given
+        URI url = UriComponentsBuilder.fromHttpUrl("https://api.trello.com/1" + "/members/"
+                + "annajanicka5" + "/boards")
+                .queryParam("key", "0e00764b541fab870789683dd9f23061")
+                .queryParam("token", "4eb746acef2bb20ba9651280d1fb33ca46aba80101302f757beb7f5497e54f8b")
+                .queryParam("fields", "name,id")
+                .queryParam("lists", "all").build().encode().toUri();
+        List<TrelloBoardDto> emptyList = new ArrayList<>();
+        //when
+        List<TrelloBoardDto> theList = trelloClient.getTrelloBoards();
+        //then
+        assertTrue(theList.isEmpty());
+        assertEquals(emptyList.size(), theList.size());
+
+    }
+
 }
